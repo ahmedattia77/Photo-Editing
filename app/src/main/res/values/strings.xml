@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Photo editing</string>
+    <string name="photo_editing">Photo Editing</string>
+    <string name="welcome_to_our_aplication"># Welcome to our Aplication</string>
+    <string name="select_a_photo_image">Select a Photo / Image</string>
+    <string name="choose_from_the_gallery">choose from the Gallery</string>
+    <string name="capture_from_the_camera">Capture from the camera</string>
+    <string name="image_has_saved">Image has saved</string>
+</resources>
