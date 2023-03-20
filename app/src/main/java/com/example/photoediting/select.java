@@ -71,25 +71,20 @@ public class select extends AppCompatActivity {
     }
 
     private void requestPermissions() {
-        // below line is use to request permission in the current activity.
-        // this method is use to handle error in runtime permissions
+
         Dexter.withActivity(this)
-                // below line is use to request the number of permissions which are required in our app.
+
                 .withPermissions(android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                        // below is the list of permissions
+
                         android.Manifest.permission.READ_EXTERNAL_STORAGE)
-                // after adding permissions we are calling an with listener method.
+
                 .withListener(new MultiplePermissionsListener() {
                     @Override
                     public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
-                        // this method is called when all permissions are granted
                         if (multiplePermissionsReport.areAllPermissionsGranted()) {
-                            // do you work now
                             Toast.makeText(select.this, "All the permissions are granted..", Toast.LENGTH_SHORT).show();
                         }
-                        // check for permanent denial of any permission
                         if (multiplePermissionsReport.isAnyPermissionPermanentlyDenied()) {
-                            // permission is denied permanently, we will show user a dialog message.
                             showSettingsDialog();
                         }
                     }
@@ -100,36 +95,27 @@ public class select extends AppCompatActivity {
                     }
 
                 }).withErrorListener(error -> {
-                    // we are displaying a toast message for error message.
                     Toast.makeText(getApplicationContext(), "Error occurred! ", Toast.LENGTH_SHORT).show();
                 })
-                // below line is use to run the permissions on same thread and to check the permissions
                 .onSameThread().check();
     }
     private void showSettingsDialog() {
-        // we are displaying an alert dialog for permissions
         AlertDialog.Builder builder = new AlertDialog.Builder(select.this);
 
-        // below line is the title for our alert dialog.
         builder.setTitle("Need Permissions");
 
-        // below line is our message for our dialog
         builder.setMessage("This app needs permission to use this feature. You can grant them in app settings.");
         builder.setPositiveButton("GOTO SETTINGS", (dialog, which) -> {
-            // this method is called on click on positive button and on clicking shit button
-            // we are redirecting our user from our app to the settings page of our app.
+
             dialog.cancel();
-            // below is the intent from which we are redirecting our user.
             Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
             Uri uri = Uri.fromParts("package", getPackageName(), null);
             intent.setData(uri);
             startActivityForResult(intent, 101);
         });
         builder.setNegativeButton("Cancel", (dialog, which) -> {
-            // this method is called when user click on negative button.
             dialog.cancel();
         });
-        // below line is used to display our dialog
         builder.show();
     }
 
