@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Photo editing</string>
+    <string name="photo_editing">Photo Editing</string>
+    <string name="welcome_to_our_aplication">مرحبا~ بك في محرر الصور</string>
+    <string name="select_a_photo_image">اختر صورة</string>
+    <string name="choose_from_the_gallery">اختر من معرض الصور</string>
+    <string name="capture_from_the_camera">التقط صورة بواسطة الكاميرا</string>
+    <string name="image_has_saved">تم تعديل الصورة وحفظها</string>
+</resources>

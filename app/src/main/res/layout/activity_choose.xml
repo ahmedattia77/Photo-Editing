@@ -66,6 +66,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="40dp"
         android:clickable="true"
+        app:fab_colorPressed="@color/bg_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/gallery" />
@@ -77,6 +78,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="110dp"
         android:clickable="true"
+        app:fab_colorPressed="@color/bg_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/baseline_camera_alt_24" />

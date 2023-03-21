@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.dsphotoeditor.sdk.activity.DsPhotoEditorActivity;
@@ -13,18 +14,26 @@ import com.dsphotoeditor.sdk.utils.DsPhotoEditorConstants;
 public class Editing extends AppCompatActivity {
     private String photoPicked;
     private ImageView imageView;
+
+    ImageView backSpace;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editing);
 
         imageView = findViewById(R.id.edit_image_iv);
+        backSpace = findViewById(R.id.editing_backspace);
 
         photoPicked = getIntent().getStringExtra(select.URI_PHOTO);
 
-        // If the input image uri for DS Photo Editor is "inputImageUri", launch the editor UI
+        backSpace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+//                startActivity(new Intent(Editing.this , select.class));
+            }
+        });
 
-        // using the following code
 
         Intent dsPhotoEditorIntent = new Intent(this, DsPhotoEditorActivity.class);
         dsPhotoEditorIntent.setData(Uri.parse(photoPicked));
@@ -38,14 +47,9 @@ public class Editing extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
 
-            switch (requestCode) {
-
-                case 200:
-                    Uri outputUri = data.getData();
-                    // handle the result uri as you want, such as display it in an imageView;
-                    imageView.setImageURI(outputUri);
-                    break;
-
+            if (requestCode == 200) {
+                Uri outputUri = data.getData();
+                imageView.setImageURI(outputUri);
             }
 
         }
