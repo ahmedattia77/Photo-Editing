@@ -59,7 +59,11 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.14.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
 
-    //Dexter library
+    //Dexter library for runTime permission
     implementation 'com.karumi:dexter:6.2.2'
+    // view pager
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    // rounded image
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
 }
